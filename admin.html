@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - LearnItalianWithRiri</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%);
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #1e1b4b;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        .admin-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        .admin-section h2 {
+            color: #1e1b4b;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #374151;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .btn-primary {
+            background: #4338ca;
+            color: white;
+        }
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+        .pdf-list {
+            background: #f9fafb;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .pdf-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .file-info {
+            flex-grow: 1;
+        }
+        .file-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .btn-small {
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+        .instructions {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .instructions h3 {
+            color: #92400e;
+            margin-top: 0;
+        }
+        .instructions p {
+            color: #78350f;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Admin Panel - LearnItalianWithRiri</h1>
+    </div>
+
+    <div class="container">
+        <div class="instructions">
+            <h3>📋 How to Add Your PDFs</h3>
+            <p><strong>Step 1:</strong> Create a "pdfs" folder in your GitHub repository</p>
+            <p><strong>Step 2:</strong> Upload your PDF files to GitHub (max 25MB each)</p>
+            <p><strong>Step 3:</strong> Use the form below to organize them into lessons</p>
+            <p><strong>Step 4:</strong> Students will see them organized by lesson and section</p>
+        </div>
+
+        <div class="admin-section">
+            <h2>📚 Add New PDF to Lesson</h2>
+            <form id="add-pdf-form">
+                <div class="form-group">
+                    <label for="lesson-select">Lesson:</label>
+                    <select id="lesson-select">
+                        <option value="1">Lesson 1: Italian Alphabet & Pronunciation</option>
+                        <option value="2">Lesson 2: Greetings and Introductions</option>
+                        <option value="3">Lesson 3: Numbers and Time</option>
+                        <option value="4">Lesson 4: Family and Home</option>
+                        <option value="5">Lesson 5: Food and Restaurant</option>
+                        <option value="6">Lesson 6: Weather and Seasons</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="section-select">Section:</label>
+                    <select id="section-select">
+                        <option value="theory">📖 Theory & Fundamentals</option>
+                        <option value="exercises">✏️ Practice & Exercises</option>
+                        <option value="reference">📋 Reference Materials</option>
+                        <option value="audio">🎵 Audio Materials</option>
+                        <option value="video">🎥 Video Content</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="pdf-title">PDF Title:</label>
+                    <input type="text" id="pdf-title" placeholder="e.g., Italian Alphabet Guide">
+                </div>
+
+                <div class="form-group">
+                    <label for="pdf-description">Description:</label>
+                    <textarea id="pdf-description" rows="3" placeholder="Brief description of what this PDF covers"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="pdf-filename">PDF Filename (in GitHub):</label>
+                    <input type="text" id="pdf-filename" placeholder="e.g., alphabet-guide.pdf">
+                </div>
+
+                <div class="form-group">
+                    <label for="pdf-pages">Number of Pages:</label>
+                    <input type="number" id="pdf-pages" placeholder="8">
+                </div>
+
+                <div class="form-group">
+                    <label for="pdf-time">Estimated Time:</label>
+                    <input type="text" id="pdf-time" placeholder="e.g., 15 min read">
+                </div>
+
+                <div class="form-group">
+                    <label for="pdf-level">Difficulty Level:</label>
+                    <select id="pdf-level">
+                        <option value="Beginner">🎯 Beginner</option>
+                        <option value="Intermediate">🎯 Intermediate</option>
+                        <option value="Advanced">🎯 Advanced</option>
+                        <option value="Practice">🎯 Practice</option>
+                        <option value="Reference">🎯 Reference</option>
+                    </select>
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="generateCode()">Generate HTML Code</button>
+            </form>
+        </div>
+
+        <div class="admin-section">
+            <h2>📝 Generated HTML Code</h2>
+            <p>Copy this code and paste it into your lesson.html file:</p>
+            <div class="pdf-list">
+                <textarea id="generated-code" rows="15" style="width: 100%; font-family: monospace;" readonly>
+Click "Generate HTML Code" above to create the code for your PDF...
+                </textarea>
+            </div>
+            <button type="button" class="btn btn-success" onclick="copyCode()">Copy to Clipboard</button>
+        </div>
+
+        <div class="admin-section">
+            <h2>📁 Current PDF Structure</h2>
+            <div class="pdf-list">
+                <div class="pdf-item">
+                    <div class="file-info">
+                        <strong>Lesson 1 - Theory Section</strong><br>
+                        <small>2 PDFs: Italian Alphabet Guide, Pronunciation Rules</small>
+                    </div>
+                </div>
+                <div class="pdf-item">
+                    <div class="file-info">
+                        <strong>Lesson 1 - Practice Section</strong><br>
+                        <small>2 PDFs: Alphabet Practice, Pronunciation Drills</small>
+                    </div>
+                </div>
+                <div class="pdf-item">
+                    <div class="file-info">
+                        <strong>Lesson 1 - Reference Section</strong><br>
+                        <small>1 PDF: Quick Reference Card</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateCode() {
+            const lesson = document.getElementById('lesson-select').value;
+            const section = document.getElementById('section-select').value;
+            const title = document.getElementById('pdf-title').value;
+            const description = document.getElementById('pdf-description').value;
+            const filename = document.getElementById('pdf-filename').value;
+            const pages = document.getElementById('pdf-pages').value;
+            const time = document.getElementById('pdf-time').value;
+            const level = document.getElementById('pdf-level').value;
+
+            if (!title || !filename) {
+                alert('Please fill in at least the title and filename');
+                return;
+            }
+
+            const code = `<div class="pdf-card">
+    <h4>${title}</h4>
+    <p>${description}</p>
+    <div class="pdf-info">
+        <span>📄 ${pages} pages</span>
+        <span>⏱️ ${time}</span>
+        <span>${level}</span>
+    </div>
+    <div class="pdf-actions">
+        <a href="pdfs/${filename}" class="btn btn-primary" target="_blank">View PDF</a>
+        <a href="pdfs/${filename}" class="btn btn-secondary" download>Download</a>
+        <label class="checkbox">
+            <input type="checkbox" onchange="toggleComplete(this)"> Completed
+        </label>
+    </div>
+</div>`;
+
+            document.getElementById('generated-code').value = code;
+        }
+
+        function copyCode() {
+            const codeArea = document.getElementById('generated-code');
+            codeArea.select();
+            document.execCommand('copy');
+            alert('Code copied to clipboard! Paste it into your lesson.html file.');
+        }
+    </script>
+</body>
+</html>
