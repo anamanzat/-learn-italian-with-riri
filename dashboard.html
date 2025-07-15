@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - LearnItalianWithRiri</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%);
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            color: #1e1b4b;
+            margin: 0;
+        }
+        .logout {
+            background: #ef4444;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .logout:hover {
+            background: #dc2626;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        .welcome {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .pdf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .pdf-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .pdf-card h3 {
+            color: #1e1b4b;
+            margin-bottom: 10px;
+        }
+        .pdf-card p {
+            color: #6b7280;
+            margin-bottom: 15px;
+        }
+        .pdf-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary {
+            background: #4338ca;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #3730a3;
+        }
+        .checkbox {
+            margin-left: auto;
+        }
+        .progress-bar {
+            background: #e5e7eb;
+            border-radius: 10px;
+            height: 20px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: #10b981;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>LearnItalianWithRiri - Dashboard</h1>
+        <a href="login.html" class="logout">Logout</a>
+    </div>
+
+    <div class="container">
+        <div class="welcome">
+            <h2>Welcome, Student!</h2>
+            <p>Your Italian learning journey starts here</p>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 30%"></div>
+            </div>
+            <p>Progress: 3 of 10 lessons completed</p>
+        </div>
+
+        <div class="pdf-grid">
+            <div class="pdf-card">
+                <h3>📚 Lesson 1: Italian Alphabet</h3>
+                <p>Learn the basics of Italian pronunciation and alphabet</p>
+                <div class="pdf-actions">
+                    <a href="#" class="btn btn-primary">View PDF</a>
+                    <label class="checkbox">
+                        <input type="checkbox" checked> Completed
+                    </label>
+                </div>
+            </div>
+
+            <div class="pdf-card">
+                <h3>👋 Lesson 2: Greetings and Introductions</h3>
+                <p>Essential phrases for meeting people in Italian</p>
+                <div class="pdf-actions">
+                    <a href="#" class="btn btn-primary">View PDF</a>
+                    <label class="checkbox">
+                        <input type="checkbox" checked> Completed
+                    </label>
+                </div>
+            </div>
+
+            <div class="pdf-card">
+                <h3>🔢 Lesson 3: Numbers and Time</h3>
+                <p>Count in Italian and tell time</p>
+                <div class="pdf-actions">
+                    <a href="#" class="btn btn-primary">View PDF</a>
+                    <label class="checkbox">
+                        <input type="checkbox" checked> Completed
+                    </label>
+                </div>
+            </div>
+
+            <div class="pdf-card">
+                <h3>🏠 Lesson 4: Family and Home</h3>
+                <p>Vocabulary about family members and house</p>
+                <div class="pdf-actions">
+                    <a href="#" class="btn btn-primary">View PDF</a>
+                    <label class="checkbox">
+                        <input type="checkbox"> Completed
+                    </label>
+                </div>
+            </div>
+
+            <div class="pdf-card">
+                <h3>🍕 Lesson 5: Food and Restaurant</h3>
+                <p>Order food and drinks in Italian</p>
+                <div class="pdf-actions">
+                    <a href="#" class="btn btn-primary">View PDF</a>
+                    <label class="checkbox">
+                        <input type="checkbox"> Completed
+                    </label>
+                </div>
+            </div>
+
+            <div class="pdf-card">
+                <h3>🌤️ Lesson 6: Weather and Seasons</h3>
+                <p>Describe weather and seasonal activities</p>
+                <div class="pdf-actions">
+                    <a href="#" class="btn btn-primary">View PDF</a>
+                    <label class="checkbox">
+                        <input type="checkbox"> Completed
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
