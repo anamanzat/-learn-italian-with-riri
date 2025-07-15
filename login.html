@@ -5,99 +5,308 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - LearnItalianWithRiri</title>
     <style>
-        body {
+        :root {
+            /* COLORI BANDIERA ITALIANA */
+            --italian-green: #009246;
+            --italian-white: #FFFFFF;
+            --italian-red: #CE2B37;
+            
+            /* SFUMATURE E VARIANTI */
+            --green-light: #00B354;
+            --green-dark: #007A3D;
+            --red-light: #E63946;
+            --red-dark: #B91C1C;
+            --cream: #FEFCF3;
+            --gray-light: #F8F9FA;
+            --gray-medium: #6C757D;
+            --gray-dark: #343A40;
+            
+            /* GRADIENTS */
+            --italian-gradient: linear-gradient(135deg, var(--italian-green) 0%, var(--cream) 50%, var(--italian-red) 100%);
+            --green-gradient: linear-gradient(135deg, var(--green-light) 0%, var(--italian-green) 100%);
+            --red-gradient: linear-gradient(135deg, var(--italian-red) 0%, var(--red-light) 100%);
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: var(--italian-gradient);
             min-height: 100vh;
-            background: linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
         }
+
         .login-container {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            width: 400px;
+            background: var(--italian-white);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            border: 3px solid transparent;
+            background-image: 
+                linear-gradient(var(--italian-white), var(--italian-white)),
+                var(--italian-gradient);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
         }
-        h1 {
+
+        .logo-section {
             text-align: center;
-            color: #1e1b4b;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
-        .form-group {
-            margin-bottom: 20px;
+
+        .logo-section h1 {
+            color: var(--italian-green);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #374151;
-            font-weight: bold;
+
+        .italian-flag {
+            display: inline-block;
+            margin-left: 15px;
+            width: 35px;
+            height: 23px;
+            background: linear-gradient(to right, var(--italian-green) 33%, var(--italian-white) 33% 66%, var(--italian-red) 66%);
+            border-radius: 4px;
+            border: 1px solid var(--gray-medium);
         }
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-        input:focus {
-            outline: none;
-            border-color: #4338ca;
-        }
-        .btn {
-            width: 100%;
-            padding: 12px;
-            background: #4338ca;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
+
+        .welcome-text {
+            color: var(--gray-dark);
+            font-size: 1.1rem;
             margin-bottom: 10px;
         }
-        .btn:hover {
-            background: #3730a3;
+
+        .italian-phrase {
+            color: var(--italian-red);
+            font-style: italic;
+            font-size: 1rem;
+            margin-bottom: 20px;
         }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--gray-dark);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--gray-light);
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: var(--cream);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--italian-green);
+            background: var(--italian-white);
+            box-shadow: 0 0 10px rgba(0, 146, 70, 0.2);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--green-gradient);
+            color: var(--italian-white);
+            border: 2px solid var(--italian-green);
+        }
+
+        .btn-primary:hover {
+            background: var(--italian-green);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 146, 70, 0.3);
+        }
+
         .btn-secondary {
-            background: #6b7280;
+            background: var(--red-gradient);
+            color: var(--italian-white);
+            border: 2px solid var(--italian-red);
         }
+
         .btn-secondary:hover {
-            background: #4b5563;
+            background: var(--italian-red);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(206, 43, 55, 0.3);
         }
+
+        .demo-credentials {
+            background: var(--cream);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--italian-green);
+        }
+
+        .demo-credentials h4 {
+            color: var(--italian-green);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .demo-credentials p {
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .demo-credentials strong {
+            color: var(--italian-red);
+        }
+
         .text-center {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 25px;
         }
+
         .link {
-            color: #4338ca;
+            color: var(--italian-green);
             text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
+
         .link:hover {
+            color: var(--italian-red);
             text-decoration: underline;
+        }
+
+        .subscription-info {
+            background: var(--gray-light);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+            text-align: center;
+            border: 2px solid var(--italian-red);
+        }
+
+        .subscription-info h4 {
+            color: var(--italian-red);
+            margin-bottom: 10px;
+        }
+
+        .subscription-info p {
+            color: var(--gray-dark);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .price-tag {
+            background: var(--red-gradient);
+            color: var(--italian-white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 35px 25px;
+                margin: 10px;
+            }
+
+            .logo-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .italian-flag {
+                width: 30px;
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .login-container {
+                padding: 25px 20px;
+            }
+
+            .logo-section h1 {
+                font-size: 1.6rem;
+            }
+
+            input, .btn {
+                padding: 12px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <h1>Login to LearnItalianWithRiri</h1>
+        <div class="logo-section">
+            <h1>LearnItalianWithRiri <span class="italian-flag"></span></h1>
+            <p class="welcome-text">Welcome to your Italian learning journey!</p>
+            <p class="italian-phrase">"Benvenuto nel mondo dell'italiano!" 🇮🇹</p>
+        </div>
+
+        <div class="demo-credentials">
+            <h4>🎯 Demo Access</h4>
+            <p><strong>Email:</strong> student@test.com</p>
+            <p><strong>Password:</strong> password</p>
+            <p>Use these credentials to explore the platform!</p>
+        </div>
+
         <form>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
             </div>
-            <button type="button" class="btn" onclick="login()">Login</button>
-            <button type="button" class="btn btn-secondary" onclick="requestAccess()">Request Access</button>
+            <button type="button" class="btn btn-primary" onclick="login()">
+                🇮🇹 Accedi (Login)
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="requestAccess()">
+                📝 Request Access
+            </button>
         </form>
+
+        <div class="subscription-info">
+            <h4>💳 Subscription Information</h4>
+            <p>Monthly access to all Italian learning materials</p>
+            <div class="price-tag">€9.99/month</div>
+            <p style="margin-top: 10px;"><small>Free access for Rita's direct students</small></p>
+        </div>
+
         <div class="text-center">
-            <a href="index.html" class="link">← Back to Home</a>
+            <a href="index.html" class="link">← Torna alla Homepage</a>
         </div>
     </div>
 
@@ -106,17 +315,17 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             
-            // Simple demo login
+            // Demo login
             if (email === 'student@test.com' && password === 'password') {
-                alert('Login successful!');
+                alert('🇮🇹 Accesso riuscito! Welcome to LearnItalianWithRiri!');
                 window.location.href = 'dashboard.html';
             } else {
-                alert('Invalid credentials. Use: student@test.com / password');
+                alert('❌ Invalid credentials. Try: student@test.com / password');
             }
         }
         
         function requestAccess() {
-            alert('Please contact Rita to request access or subscribe for €9.99/month');
+            alert('📧 Please contact Rita at rita@learnitalianwithri.com to request access or subscribe for €9.99/month via Revolut.\n\n🇮🇹 Contatta Rita per richiedere l\'accesso!');
         }
     </script>
 </body>
