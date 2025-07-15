@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Details - LearnItalianWithRiri</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%);
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            color: #1e1b4b;
+            margin: 0;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-links a {
+            color: #4338ca;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background: #f3f4f6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        .lesson-header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .lesson-header h2 {
+            color: #1e1b4b;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+        .lesson-header p {
+            color: #6b7280;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .lesson-progress {
+            background: #e5e7eb;
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .lesson-progress-fill {
+            background: #10b981;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        .pdf-section {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .section-title h3 {
+            color: #1e1b4b;
+            margin: 0;
+            font-size: 24px;
+        }
+        .section-title p {
+            color: #6b7280;
+            margin: 5px 0 0 0;
+        }
+        .pdf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .pdf-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        .pdf-card:hover {
+            transform: translateY(-5px);
+        }
+        .pdf-card h4 {
+            color: #1e1b4b;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .pdf-card p {
+            color: #6b7280;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .pdf-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+        .pdf-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+        }
+        .btn-primary {
+            background: #4338ca;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #3730a3;
+        }
+        .btn-secondary {
+            background: #10b981;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background: #059669;
+        }
+        .checkbox {
+            margin-left: auto;
+        }
+        .checkbox input {
+            margin-right: 5px;
+        }
+        .completed {
+            opacity: 0.7;
+            border-left: 4px solid #10b981;
+        }
+        .lesson-nav {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .lesson-nav a {
+            color: #4338ca;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #4338ca;
+            border-radius: 8px;
+        }
+        .lesson-nav a:hover {
+            background: #4338ca;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>LearnItalianWithRiri</h1>
+        <div class="nav-links">
+            <a href="dashboard.html">← Back to Dashboard</a>
+            <a href="login.html">Logout</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="lesson-header">
+            <h2 id="lesson-title">📚 Lesson 1: Italian Alphabet & Pronunciation</h2>
+            <p id="lesson-description">Master the foundation of Italian - learn correct pronunciation and get familiar with Italian sounds</p>
+            <div class="lesson-progress">
+                <div class="lesson-progress-fill" id="lesson-progress" style="width: 60%"></div>
+            </div>
+            <p><span id="completed-count">3</span> of <span id="total-count">5</span> materials completed</p>
+        </div>
+
+        <!-- THEORY SECTION -->
+        <div class="pdf-section">
+            <div class="section-title">
+                <h3>📖 Theory & Fundamentals</h3>
+                <p>Essential theory and rules you need to understand</p>
+            </div>
+            <div class="pdf-grid">
+                <div class="pdf-card completed">
+                    <h4>Italian Alphabet Guide</h4>
+                    <p>Complete guide to Italian letters, pronunciation rules, and phonetic examples</p>
+                    <div class="pdf-info">
+                        <span>📄 8 pages</span>
+                        <span>⏱️ 15 min read</span>
+                        <span>🎯 Beginner</span>
+                    </div>
+                    <div class="pdf-actions">
+                        <a href="#" class="btn btn-primary" onclick="viewPDF('alphabet-guide.pdf')">View PDF</a>
+                        <a href="#" class="btn btn-secondary" onclick="downloadPDF('alphabet-guide.pdf')">Download</a>
+                        <label class="checkbox">
+                            <input type="checkbox" checked onchange="toggleComplete(this)"> Completed
+                        </label>
+                    </div>
+                </div>
+
+                <div class="pdf-card completed">
+                    <h4>Pronunciation Rules</h4>
+                    <p>Detailed pronunciation guide with audio references and common mistakes to avoid</p>
+                    <div class="pdf-info">
+                        <span>📄 12 pages</span>
+                        <span>⏱️ 20 min read</span>
+                        <span>🎯 Beginner</span>
+                    </div>
+                    <div class="pdf-actions">
+                        <a href="#" class="btn btn-primary" onclick="viewPDF('pronunciation-rules.pdf')">View PDF</a>
+                        <a href="#" class="btn btn-secondary" onclick="downloadPDF('pronunciation-rules.pdf')">Download</a>
+                        <label class="checkbox">
+                            <input type="checkbox" checked onchange="toggleComplete(this)"> Completed
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXERCISES SECTION -->
+        <div class="pdf-section">
+            <div class="section-title">
+                <h3>✏️ Practice & Exercises</h3>
+                <p>Hands-on practice to reinforce your learning</p>
+            </div>
+            <div class="pdf-grid">
+                <div class="pdf-card completed">
+                    <h4>Alphabet Practice Worksheets</h4>
+                    <p>Writing practice sheets and pronunciation exercises to master each letter</p>
+                    <div class="pdf-info">
+                        <span>📄 6 pages</span>
+                        <span>⏱️ 30 min practice</span>
+                        <span>🎯 Practice</span>
+                    </div>
+                    <div class="pdf-actions">
+                        <a href="#" class="btn btn-primary" onclick="viewPDF('alphabet-exercises.pdf')">View PDF</a>
+                        <a href="#" class="btn btn-secondary" onclick="downloadPDF('alphabet-exercises.pdf')">Download</a>
+                        <label class="checkbox">
+                            <input type="checkbox" checked onchange="toggleComplete(this)"> Completed
+                        </label>
+                    </div>
+                </div>
+
+                <div class="pdf-card">
+                    <h4>Pronunciation Drills</h4>
+                    <p>Focused practice on difficult Italian sounds and letter combinations</p>
+                    <div class="pdf-info">
+                        <span>📄 4 pages</span>
+                        <span>⏱️ 25 min practice</span>
+                        <span>🎯 Practice</span>
+                    </div>
+                    <div class="pdf-actions">
+                        <a href="#" class="btn btn-primary" onclick="viewPDF('pronunciation-drills.pdf')">View PDF</a>
+                        <a href="#" class="btn btn-secondary" onclick="downloadPDF('pronunciation-drills.pdf')">Download</a>
+                        <label class="checkbox">
+                            <input type="checkbox" onchange="toggleComplete(this)"> Completed
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REFERENCE SECTION -->
+        <div class="pdf-section">
+            <div class="section-title">
+                <h3>📋 Reference Materials</h3>
+                <p>Quick reference guides and cheat sheets</p>
+            </div>
+            <div class="pdf-grid">
+                <div class="pdf-card">
+                    <h4>Quick Reference Card</h4>
+                    <p>Printable reference card with alphabet, pronunciation guide, and common letter combinations</p>
+                    <div class="pdf-info">
+                        <span>📄 2 pages</span>
+                        <span>⏱️ Reference</span>
+                        <span>🎯 All levels</span>
+                    </div>
+                    <div class="pdf-actions">
+                        <a href="#" class="btn btn-primary" onclick="viewPDF('reference-card.pdf')">View PDF</a>
+                        <a href="#" class="btn btn-secondary" onclick="downloadPDF('reference-card.pdf')">Download</a>
+                        <label class="checkbox">
+                            <input type="checkbox" onchange="toggleComplete(this)"> Completed
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lesson-nav">
+            <a href="dashboard.html">← Previous: Dashboard</a>
+            <a href="lesson.html?lesson=2">Next: Lesson 2 →</a>
+        </div>
+    </div>
+
+    <script>
+        function viewPDF(filename) {
+            // For now, show placeholder
+            alert(`Opening ${filename}\n\nNote: PDF viewer will be implemented when you upload real PDFs`);
+        }
+
+        function downloadPDF(filename) {
+            alert(`Downloading ${filename}\n\nNote: Download will work when real PDFs are uploaded`);
+        }
+
+        function toggleComplete(checkbox) {
+            const card = checkbox.closest('.pdf-card');
+            if (checkbox.checked) {
+                card.classList.add('completed');
+            } else {
+                card.classList.remove('completed');
+            }
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const totalCheckboxes = document.querySelectorAll('.pdf-card input[type="checkbox"]').length;
+            const checkedBoxes = document.querySelectorAll('.pdf-card input[type="checkbox"]:checked').length;
+            const percentage = (checkedBoxes / totalCheckboxes) * 100;
+            
+            document.getElementById('lesson-progress').style.width = percentage + '%';
+            document.getElementById('completed-count').textContent = checkedBoxes;
+            document.getElementById('total-count').textContent = totalCheckboxes;
+        }
+
+        // Initialize progress on page load
+        updateProgress();
+    </script>
+</body>
+</html>
